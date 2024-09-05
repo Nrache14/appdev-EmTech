@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const NegroWidget());
+}
+
+class NegroWidget extends StatelessWidget {
+  const NegroWidget({super.key});
+
+  Widget appcontent() {
+    return const Center(
+      child: Text("Hello World!"),
+    );
+  }
+
+  Widget firstbox() {
+    return Center(
+      child: Container(
+        height: 200,
+        width: 200,
+        child: Center(child: Text("my box")),
+        decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 214, 133, 127),
+            borderRadius: const BorderRadius.all(Radius.circular(10))),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("My custom App"),
+          backgroundColor: Color.fromARGB(255, 150, 44, 26),
+        ),
+        body: firstbox(),
+      ),
+    );
+  }
+}
