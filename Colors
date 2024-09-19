@@ -58,20 +58,20 @@ class MyApp extends StatelessWidget {
                       height: 250,
                       color: Color.fromARGB(255, 251, 255, 36),
                     ),
-                    // Row(
-                    //   children: [
-                    // Container(
-                    //   width: 125,
-                    //   height: 125,
-                    //   color: Color.fromARGB(255, 201, 43, 43),
-                    // ),
-                    // Container(
-                    //   width: 125,
-                    //   height: 125,
-                    //   color: Color.fromARGB(255, 151, 49, 100),
-                    // )
-                    //   ],
-                    // )
+                  ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                      width: 125,
+                      height: 125,
+                      color: Color.fromARGB(255, 151, 49, 100),
+                    ),
+                    Container(
+                      width: 125,
+                      height: 125,
+                      color: Color.fromARGB(255, 201, 43, 43),
+                    ),
                   ],
                 ),
               ],
@@ -79,15 +79,10 @@ class MyApp extends StatelessWidget {
             Column(
               children: [
                 Container(
-                    // width: 250,
-                    // height: 250,
-                    // color: Color.fromARGB(255, 47, 179, 58),
-                    ),
-                Container(
-                    // width: 250,
-                    // height: 500,
-                    // color: Color.fromARGB(255, 206, 82, 82),
-                    ),
+                  width: 250,
+                  height: 500,
+                  color: Color.fromARGB(255, 206, 82, 82),
+                ),
               ],
             ),
           ],
