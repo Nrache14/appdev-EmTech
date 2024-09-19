@@ -65,23 +65,32 @@ class MyApp extends StatelessWidget {
                     Container(
                       width: 125,
                       height: 125,
-                      color: Color.fromARGB(255, 151, 49, 100),
+                      color: Color.fromARGB(255, 201, 43, 43),
                     ),
                     Container(
                       width: 125,
                       height: 125,
-                      color: Color.fromARGB(255, 201, 43, 43),
+                      color: Color.fromARGB(255, 151, 49, 100),
                     ),
                   ],
                 ),
               ],
             ),
-            Column(
+            Row(
               children: [
                 Container(
                   width: 250,
                   height: 500,
-                  color: Color.fromARGB(255, 206, 82, 82),
+                  color: Color.fromARGB(255, 175, 60, 60),
+                ),
+                Column(
+                  children: [
+                    Container(
+                      width: 250,
+                      height: 250,
+                      color: Color.fromARGB(255, 185, 185, 185),
+                    ),
+                  ],
                 ),
               ],
             ),
