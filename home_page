@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+import 'package:listview/square.dart';
+
+class HomePage extends StatelessWidget {
+  final List _posts = [
+    'post 1',
+    'post 2',
+    'post 3',
+    'post 4',
+    'post 5',
+    'post 6',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+          body: Column(
+        children: [
+          //ig storeies
+          Row(
+            children: [
+              Container(
+                height: 100,
+                width: 100,
+                decoration:
+                    BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
+              )
+            ],
+          ),
+
+          //ig post
+
+          Expanded(
+            child: ListView.builder(
+                itemCount: _posts.length,
+                itemBuilder: (context, index) {
+                  return MySquare(
+                    child: _posts[index],
+                  );
+                }),
+          ),
+        ],
+      )),
+    );
+  }
+}
