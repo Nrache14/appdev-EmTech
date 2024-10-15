@@ -7,15 +7,18 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Center(
+        body: Container(
+          height: 400,
+          width: 500,
+          color: Color.fromARGB(255, 0, 0, 0),
           child: Column(
             children: [
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
                     height: 200,
@@ -23,7 +26,6 @@ class MyApp extends StatelessWidget {
                     color: Color.fromARGB(255, 90, 4, 4),
                   ),
                   Container(
-                    // transformAlignment: const Tralignment(5.5, 0.0),
                     height: 150,
                     width: 150,
                     color: Color.fromARGB(255, 206, 98, 98),
@@ -42,31 +44,34 @@ class MyApp extends StatelessWidget {
                     width: 200,
                     color: Color.fromARGB(255, 185, 44, 44),
                   ),
-                  Container(
-                    height: 200,
-                    width: 200,
-                    color: Color.fromARGB(255, 140, 201, 198),
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        height: 100,
-                        width: 100,
-                        color: Color.fromARGB(255, 212, 151, 151),
-                      ),
-                      Container(
-                        height: 100,
-                        width: 100,
-                        color: Color.fromARGB(255, 211, 82, 82),
-                      ),
-                    ],
+                  // Move the container and column 50 units upward
+                  Transform.translate(
+                    offset: Offset(0, -50), // Move upward by 50 units
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 200,
+                          width: 200,
+                          color: Color.fromARGB(255, 140, 201, 198),
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              height: 100,
+                              width: 100,
+                              color: Color.fromARGB(255, 212, 151, 151),
+                            ),
+                            Container(
+                              height: 100,
+                              width: 100,
+                              color: Color.fromARGB(255, 211, 82, 82),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
-              ),
-              Container(
-                height: 50,
-                width: 300,
-                color: Colors.black,
               ),
             ],
           ),
