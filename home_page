@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:listview/square.dart';
+import 'package:instagram/circle.dart';
+import 'package:instagram/square.dart';
 
 class HomePage extends StatelessWidget {
   final List _posts = [
-    'post 1',
+    // 'lib/images/gojo.jpg',
+    'asd 1',
     'post 2',
     'post 3',
     'post 4',
     'post 5',
     'post 6',
+  ];
+
+  final List _stories = [
+    'story 0',
+    'story 2',
+    'story 3',
+    'story 4',
+    'story 5',
+    'story 6',
   ];
 
   @override
@@ -18,20 +29,20 @@ class HomePage extends StatelessWidget {
           body: Column(
         children: [
           //ig storeies
-          Row(
-            children: [
-              Container(
-                height: 100,
-                width: 100,
-                decoration:
-                    BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
-              )
-            ],
-          ),
-
+          Container(
+              height: 150,
+              child: ListView.builder(
+                  itemCount: _stories.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return MyCircle(
+                      child: _stories[index],
+                    );
+                  })),
           //ig post
 
           Expanded(
+            flex: 4,
             child: ListView.builder(
                 itemCount: _posts.length,
                 itemBuilder: (context, index) {
