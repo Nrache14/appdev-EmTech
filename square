@@ -1,4 +1,3 @@
-// import 'package:listview/square.dart';
 import 'package:flutter/material.dart';
 
 class MySquare extends StatelessWidget {
