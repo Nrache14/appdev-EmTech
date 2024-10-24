@@ -1,58 +1,79 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/circle.dart';
-import 'package:instagram/square.dart';
+import 'package:listview/circle.dart';
+import 'package:listview/square.dart'; // Assuming the correct path for MyCircle
 
-class HomePage extends StatelessWidget {
-  final List _posts = [
-    // 'lib/images/gojo.jpg',
-    'asd 1',
-    'post 2',
-    'post 3',
-    'post 4',
-    'post 5',
-    'post 6',
-  ];
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final List _posts = ['hotdog', 'siomai', 'rice', 'lollipop', 'candy'];
 
   final List _stories = [
-    'story 0',
-    'story 2',
-    'story 3',
-    'story 4',
-    'story 5',
-    'story 6',
+    'one D',
+    'the vamps',
+    '5 sos',
+    '21 pilots',
+    'westlife',
+    'coldplay',
   ];
+
+  // Create a list to track toggled state for each story
+  List<bool> isToggledList = List.generate(6, (index) => false);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          body: Column(
-        children: [
-          //ig storeies
-          Container(
+        body: Column(
+          children: [
+            // Stories
+            Container(
               height: 150,
               child: ListView.builder(
-                  itemCount: _stories.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return MyCircle(
+                itemCount: _stories.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        // Toggle the color for the specific story
+                        isToggledList[index] = !isToggledList[index];
+                      });
+                    },
+                    child: MyCircle(
+                      // Pass the child (story text) and toggle color
                       child: _stories[index],
-                    );
-                  })),
-          //ig post
-
-          Expanded(
-            flex: 4,
-            child: ListView.builder(
+                      color: isToggledList[index] ? Color.fromARGB(255, 42, 145, 88) : Colors.blue, // Toggle between red and blue
+                    ),
+                  );
+                },
+              ),
+            ),
+            // Posts
+            Expanded(
+              flex: 4,
+              child: ListView.builder(
                 itemCount: _posts.length,
                 itemBuilder: (context, index) {
-                  return MySquare(
-                    child: _posts[index],
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        print(_posts[index]);
+                        _posts.removeAt(index);
+                      });
+                    },
+                    child: MySquare(
+                      child: _posts[index],
+                    ),
                   );
-                }),
-          ),
-        ],
-      )),
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
