@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class MyCircle extends StatelessWidget {
   final String child;
+  final Color color; // Added a color parameter to control background color
 
-  MyCircle({required this.child});
+  MyCircle({required this.child, this.color = Colors.blue}); // Default color is blue
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +13,13 @@ class MyCircle extends StatelessWidget {
       child: Container(
         height: 100,
         width: 100,
-        decoration: BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
+        decoration: BoxDecoration(color: color, shape: BoxShape.circle), // Use the passed color
         child: Center(
-            child: Text(
-          child,
-          style: TextStyle(fontSize: 20),
-        )),
+          child: Text(
+            child,
+            style: TextStyle(fontSize: 20, color: Colors.white), // White text for contrast
+          ),
+        ),
       ),
     );
   }
